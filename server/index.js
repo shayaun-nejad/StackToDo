@@ -42,11 +42,12 @@ app.post('/:n', (req, res) => {
     value: req.body.data
   });
   } else if (numero === '2') {
-    var text = req.body.data
     Final.create({
       value: req.body.data
     }).then(() => {
-      Todo.findOneAndRemove({'value': `${text}`});
+      var text = req.body.data
+      Todo.findOneAndRemove({'value': `${text}`}, (response, request) => {
+      });
     });
     }
 });
@@ -74,8 +75,8 @@ app.get('/:n', (req, res) => {
 
 app.delete('/:n', (req, res) => {
   if (req.params.n === '1') {
-    Final.remove({}, () => {});
-    Todo.remove({}, () => {});  
+    Final.remove({}, () => {}).then(() => {});
+    Todo.remove({}, () => {}).then(() => {});  
   }
 });
 
