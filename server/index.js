@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 const app = express();
 const bodyParser = require('body-parser');
-
+const mongoUrl = require('../config/config.js').mongoURL 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: false
@@ -12,7 +12,7 @@ app.use(express.static(path.join(__dirname, '../client/dist/')));
 
 /// mongoose stuff
 const mongoose = require('mongoose');
-const mongoDB = 'mongodb://sneej:123456a@ds051903.mlab.com:51903/stacktodo';
+const mongoDB = mongoUrl;
 mongoose.connect(mongoDB, { useNewUrlParser: true } , () => {
   console.log('dayum')
 });
