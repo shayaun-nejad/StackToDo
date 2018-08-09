@@ -42,15 +42,11 @@ app.post('/:n', (req, res) => {
     value: req.body.data
   });
   } else if (numero === '2') {
-    console.log('yah')
     var text = req.body.data
     Final.create({
       value: req.body.data
     }).then(() => {
-      Todo.findOneAndRemove({'value': `${text}`}, (request, response) => {
-        console.log(request);
-        console.log(response)
-      });
+      Todo.findOneAndRemove({'value': `${text}`});
     });
     }
 });
