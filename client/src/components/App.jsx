@@ -126,13 +126,15 @@ class App extends Component {
         </div>
         <div id='theforms'>
         <form>
+          <label>
           <input type='text' value ={this.state.val} onChange={this.texter.bind(this)} id='inn'/>
           <input type='submit' onClick={this.add.bind(this)}  id='sub'/>
           <input type='submit' value ='Enqueue' onClick={this.add2.bind(this)} id='sub' />
+          </label>
         </form>
-        <div>
+        <div id='buttons'>
           <button onClick={this.remove.bind(this)} id='fin'> Finished </button>
-          <button onClick={this.clear.bind(this)}> Clear </button>
+          <button onClick={this.clear.bind(this)} id='clear'> Clear </button>
         </div>
         </div>
         <div id='todo'>
